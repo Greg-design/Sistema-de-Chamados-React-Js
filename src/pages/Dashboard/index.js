@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AuthContext } from "../../contexts/auth";
 import Header from "../../components/Header";
 import "./dashboard.css";
 import Title from "../../components/Title";
 import { FiMessageSquare, FiPlus, FiSearch, FiEdit2 } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import firebase from "../../services/firebaseConnection";
 
 export default function Dashboard() {
-  const [chamados, setChamados] = useState([1]);
+  const [chamados, setChamados] = useState([]);
+  const [loading, setloading] = useState(true)
 
   return (
     <div>
